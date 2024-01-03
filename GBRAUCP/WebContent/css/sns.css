@@ -1,0 +1,105 @@
+@charset "EUC-KR";
+#snsWriteTbl{
+	position: fixed;
+	width: 100%;
+	top:140px;
+	left: 0px;
+}
+#snsWriteTbl table{
+	border:#FFB300 solid 3px;
+}
+#snsWriteTbl textarea{
+	resize: none;
+	width: 700px;	height:100px;
+	border:none;
+	background-color: transparent;
+	outline:none;	font-size:14pt;
+	color:white;	font-family: "a";
+	padding: 5px;
+}
+#snsWriteTbl button{
+	background-color: transparent;
+	border: none;
+	font-family: "b";	font-size: 25pt;
+	color:#FFB300;
+}
+#snsBlankArea{
+	height: 75px;
+}
+#snsSearchArea{
+	width:470px;
+	height: 50px;
+	border:#C62828 solid 3px;
+}
+#snsSearchArea input{
+	width: 400px;
+	height: 40px;
+	background-color: transparent;
+	border:none;
+	outline:none;
+	color:white;	font-family: "b";
+	padding: 5px;	font-size: 13pt;
+}
+#snsSearchArea button{
+	color:#C62828;
+	background-color: transparent;
+	border: none;	font-family: "a";
+	font-size: 14pt;	font-weight: 900;
+}
+.aMsg{
+	width: 80%;		background-color: #FFFFFF22;
+	color:white;	margin: 20px;
+	border-radius: 10px;
+	box-shadow: 3px 3px 3px #FFB300;
+}
+.aMsg td{
+	padding: 10px;
+}
+.aMsg .td1{
+	width: 80px;
+}
+.aMsg img{
+	max-width: 70px;
+}
+.aMsg .td2{
+	font-family: "b";	font-size: 13pt;	color:#FFB300;
+}
+.aMsg .td3{
+	font-family: "b";	font-size: 10pt;
+}
+.aMsg .td4{
+	font-family: "a";	padding: 20px;
+}
+.aMsg .td5{
+	font-family: "a";	padding: 20px;
+	font-size: 10pt;
+}
+.aMsg .td5 input{
+	border:none;	background-color:transparent;
+	border-bottom: white solid 1px;	
+	width: 500px;	outline:none;
+	font-family: "a";	color:white;
+}
+.snsReplyWriter{
+	font-family: "b";	color:#FFB300;
+	margin-left: 5px;	margin-right: 5px;
+}
+.aMsg button{
+	border: none;	color:#FFB300;
+	background-color: transparent;
+	font-family: "b";	font-size: 14pt;
+}
+.snsL, .snsR {
+	font-size: 130pt;	font-weight: 900;
+	position: fixed;	top:40%;
+	color:#FFB300;		font-family: "a";
+}
+.snsL {
+	left:40px;
+}
+.snsR {
+	right:40px;
+}
+
+
+

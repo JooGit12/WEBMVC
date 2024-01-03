@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="snsMapper">
+	<insert id="write"
+		parameterType="com.kwon.gbraucp.sns.SNSMsg">
+		insert into gbraucp_sns 
+		values(gbraucp_sns_seq.nextval, 
+		#{gs_writer}, #{gs_txt}, sysdate)
+	</insert>
+	<select id="get"
+		parameterType="com.kwon.gbraucp.sns.SNSSelector"
+		resultType="com.kwon.gbraucp.sns.SNSMsg">
+		select gs_no, gs_writer, gs_txt, gs_date, gm_photo
+		from (
+			select *
+			from (
+				select rownum as rn, gs_no, gs_writer, gs_txt, gs_date
+				from (
+					select gs_no, gs_writer, gs_txt, gs_date
+					from gbraucp_sns
+					where gs_txt like '%'||#{search}||'%'
+					order by gs_date desc
+				)
+			)
+			where rn &gt;= #{start} and rn &lt;= #{end}
+		), (
+			select gm_id, gm_photo
+			from gbraucp_member
+			where gm_id in (
+				select gs_writer
+				from (
+					select rownum as rn, gs_no, gs_writer, gs_txt, gs_date
+					from (
+						select gs_no, gs_writer, gs_txt, gs_date
+						from gbraucp_sns
+						where gs_txt like '%'||#{search}||'%'
+						order by gs_date desc
+					)
+				)
+				where rn &gt;= #{start} and rn &lt;= #{end}
+			)
+		)
+		where gs_writer = gm_id
+		order by gs_date desc
+	</select>
+	<select id="getMsgCount"
+		parameterType="com.kwon.gbraucp.sns.SNSSelector"
+		resultType="java.lang.Integer">
+		select count(*) 
+		from gbraucp_sns 
+		where gs_txt like '%'||#{search}||'%' 
+	</select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+

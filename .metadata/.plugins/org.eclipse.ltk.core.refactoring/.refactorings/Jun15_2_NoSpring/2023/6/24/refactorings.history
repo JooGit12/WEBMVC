@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 3 elements to &apos;Jun16_3_Spring/src/main/java/com.kwon.jun163s.main&apos;&#x0D;&#x0A;- Original project: &apos;Jun16_2_NoSpring&apos;&#x0D;&#x0A;- Destination element: &apos;Jun16_3_Spring/src/main/java/com.kwon.jun163s.main&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     com.kwon.jun162ns.main.Hulk.java&#x0D;&#x0A;     com.kwon.jun162ns.main.Avengers.java&#x0D;&#x0A;     com.kwon.jun162ns.main.Ironman.java" description="Copy compilation units" destination="=Jun16_3_Spring/src\/main\/java&lt;com.kwon.jun163s.main" element1="/src&lt;com.kwon.jun162ns.main{Hulk.java" element2="/src&lt;com.kwon.jun162ns.main{Avengers.java" element3="/src&lt;com.kwon.jun162ns.main{Ironman.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1686811400152" units="3" version="1.0"/>
+</session>

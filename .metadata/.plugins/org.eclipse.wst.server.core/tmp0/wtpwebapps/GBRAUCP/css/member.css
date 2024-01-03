@@ -1,0 +1,82 @@
+@charset "EUC-KR";
+#loginTbl td{
+	padding: 5px;
+}
+#loginTbl input{
+	border:#FFB300 solid 2px;
+	width: 170px;	height: 30px;
+	background-color: transparent;
+	color:white;
+	outline:none;
+	font-family: "a";
+	font-size: 13pt;
+	padding: 5px;
+}
+#loginTbl input::placeholder{
+	color:#FFB300;
+}
+#loginTbl button, #loginTbl a{
+	font-size: 13pt;	cursor:pointer;
+	border:none;	background-color: transparent;
+	color:#FFB300;	font-weight: 900;	font-family: "b";
+}
+#joinTbl{
+	width: 50%; 		color:#FFB300;
+}
+#joinTbl th{
+	font-family: "b";	font-size: 20pt;
+	height: 80px;		
+}
+#joinTbl td{
+	padding: 10px;
+}
+#joinTbl input{
+	border:#FFB300 solid 2px;
+	width: 99%;	height: 30px;
+	background-color: transparent;
+	color:white;	outline:none;
+	font-family: "a";
+	font-size: 13pt;
+	padding: 5px;
+}
+#joinTbl select{
+	border:#FFB300 solid 2px;
+	width: 28%;		height: 40px;	padding: 5px;
+	background-color: transparent;
+	color:white;	outline:none;	font-family: "a";
+}
+#joinTbl option{
+	color:black;
+}
+#joinTbl button{
+	font-size: 20pt;	cursor:pointer;
+	border:none;	background-color: transparent;
+	color:#FFB300;	font-weight: 900;	font-family: "b";
+}
+#loginedTbl{
+	width:250px;
+	font-family: "a";
+	font-size: 17pt;
+}
+#loginedTbl td{
+	padding: 5px;
+}
+#loginedTbl .imgTd{
+	width: 75px;
+}
+#loginedTbl img{
+	max-width: 60px;
+}
+#loginedTbl a{
+	border: none;
+	background-color: transparent;
+	font-family: "b";	font-size: 16pt;
+	color:white;
+	margin-left: 10px;	margin-right: 10px;
+}
+#memberInfoBD{
+	color:white;	font-family: "b";
+}
+#memberInfoImg{
+	max-width: 40%;
+}

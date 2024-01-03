@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="memberMapper">
+	<delete id="bye" 
+		parameterType="com.kwon.gbraucp.member.Member">
+		delete from gbraucp_member 
+		where gm_id = #{gm_id}
+	</delete>
+	<insert id="join" 
+		parameterType="com.kwon.gbraucp.member.Member">
+		insert into gbraucp_member 
+		values(#{gm_id}, #{gm_pw}, #{gm_name}, 
+				#{gm_birthday}, #{gm_addr}, #{gm_photo})	
+	</insert>
+	<select id="login" 
+		parameterType="com.kwon.gbraucp.member.Member"
+		resultType="com.kwon.gbraucp.member.Member">
+		select * 
+		from gbraucp_member 
+		where gm_id = #{gm_id}
+	</select>
+	<update id="update"
+		parameterType="com.kwon.gbraucp.member.Member">
+		update gbraucp_member
+		set gm_pw=#{gm_pw}, gm_name=#{gm_name}, gm_addr=#{gm_addr}, gm_photo=#{gm_photo}
+		where gm_id=#{gm_id}	
+	</update>
+</mapper>
+
+
+
+
+
+
+
+

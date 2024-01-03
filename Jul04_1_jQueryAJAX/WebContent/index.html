@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="http://dapi.kakao.com/v2/maps/sdk.js?appkey=8ea152f2d8afe28b90a9db5e9f465dd5"></script>
+<script type="text/javascript" src="jQuery.js"></script>
+<script type="text/javascript">
+	var map;		var marker;
+	var roadview;
+	var roadviewClient = new kakao.maps.RoadviewClient();
+	
+	function move(lt, lg) {
+		var ll = new kakao.maps.LatLng(lt, lg);
+		map.panTo(ll);
+		marker.setPosition(ll);
+		
+		roadviewClient.getNearestPanoId(ll, 100, function(p){
+			roadview.setPanoId(p);
+		});
+	}
+	
+	$(function() {
+		// GPS있으면 GPS로, 없으면 IP주소로
+		navigator.geolocation.getCurrentPosition(function(l) {
+			var lat = l.coords.latitude; // 위도
+			var lng = l.coords.longitude; // 경도
+			///////////////////////////////////////////////
+			var curLoc = new kakao.maps.LatLng(lat, lng); 
+			var container = document.getElementById('map');
+			var options = { 
+				center: curLoc,
+				level: 3,
+				mapTypeId: kakao.maps.MapTypeId.ROADMAP
+			};
+			map = new kakao.maps.Map(container, options);
+			///////////////////////////////////////////////
+			var container2 = document.getElementById('rv');
+			roadview = new kakao.maps.Roadview(container2);
+			roadviewClient.getNearestPanoId(curLoc, 50, function(p){
+				roadview.setPanoId(p);
+			});
+			///////////////////////////////////////////////
+			marker = new kakao.maps.Marker({
+			    map: map,
+			    position: curLoc
+			});			
+			///////////////////////////////////////////////
+		});
+		$("#locSearch").keyup(function(e) {
+			var locSearch = $(this).val();
+			$.ajax({
+				url : "https://dapi.kakao.com/v2/local/search/address.json",
+				beforeSend : function(req){
+					req.setRequestHeader("Authorization", "KakaoAK b159d788bacf5fc0bbb9779600c92fa5");
+				},
+				data : {query : locSearch},
+				success : function(asd) {
+					move(asd.documents[0].y, asd.documents[0].x);
+				}
+			});
+		});
+		$("#search").keyup(function(e){
+			$.ajax({
+				url : "https://dapi.kakao.com/v2/local/search/keyword.json",
+				beforeSend : function(req){
+					req.setRequestHeader("Authorization", "KakaoAK b159d788bacf5fc0bbb9779600c92fa5");
+				},
+				data : {
+					query : $(this).val(),
+					x : map.getCenter().getLng(),
+					y : map.getCenter().getLat(),
+					radius : 5000
+				},
+				success : function(zcx){
+					$("#resultArea").empty();
+					$.each(zcx.documents, function(i, l){
+						var nameTd = $("<td></td>").text(l.place_name);
+						var addrTd = $("<td></td>").text(l.road_address_name);
+						var phoneTd = $("<td></td>").text(l.phone);
+						var tr = $("<tr></tr>").attr("onclick", "move("+l.y+","+l.x+");").append(nameTd, addrTd, phoneTd);
+						$("#resultArea").append(tr);
+					});
+				}
+			});
+		});
+	});
+</script>
+</head>
+<body>
+	지역명 : <input id="locSearch"><br>
+	검색어 : <input id="search"><hr>
+	<table style="width:100%;">
+		<tr>
+			<td style="width:50%;">
+				<div id="map" style="width:100%;height:250px;"></div>
+			</td>
+			<td style="width:50%;">
+				<div id="rv" style="width:100%;height:250px;"></div>
+			</td>
+		</tr>
+	</table>
+	<hr>
+	<table id="resultArea" border="1"></table>
+</body>
+</html>
+
+

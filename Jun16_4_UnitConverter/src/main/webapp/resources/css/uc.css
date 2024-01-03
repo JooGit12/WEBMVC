@@ -1,0 +1,41 @@
+@charset "EUC-KR";
+
+@font-face {
+	font-family: "ha";
+	src: url("hahahaha.ttf");
+}
+
+body {
+	font-family: "ha";
+}
+
+table {
+	margin-left: auto;
+	margin-right: auto;
+	width: 200px;
+	height: 200px;
+	border: black solid 2px;
+}
+
+input, select, button {
+	font-family: "ha";
+	width: 90%;
+	height: 30px;
+	outline: none;
+}
+
+#len {
+	color: red;
+}
+
+#size {
+	color: green;
+}
+
+#temp {
+	color: blue;
+}
+
+#spd {
+	color: orange;
+}

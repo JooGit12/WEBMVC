@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kwon.jun261xj.menu.MenuMapper">
+	<select id="get" 
+		parameterType="com.kwon.jun261xj.menu.MenuSelector"
+		resultType="com.kwon.jun261xj.menu.Menu">
+		select * 
+		from (
+			select rownum as rn, m_name, m_price
+			from (
+				select *
+				from jun27_menu
+				order by m_name
+			)
+		)
+		where rn &gt;= #{start} and rn &lt;= #{end}
+	</select>
+	<select id="getAllMenuCount" resultType="java.lang.Integer">
+		select count(*) from jun27_menu
+	</select>
+</mapper>

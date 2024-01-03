@@ -1,0 +1,1 @@
+select * from GBRAUCP_MEMBER;

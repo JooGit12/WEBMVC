@@ -1,0 +1,27 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="resources/jQuery.js"></script>
+<script type="text/javascript">
+	$(function() {
+		// GPS있으면 GPS로, 없으면 IP주소로
+		navigator.geolocation.getCurrentPosition(function(l) {
+			var lat = l.coords.latitude; // 위도
+			var lng = l.coords.longitude; // 경도
+			$("h1").text(lat);
+			$("h2").text(lng);
+		});		
+	});
+</script>
+</head>
+<body>
+	<h1></h1>
+	<h2></h2>
+</body>
+</html>
+
+

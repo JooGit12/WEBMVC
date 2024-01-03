@@ -1,0 +1,56 @@
+@charset "EUC-KR";
+::-webkit-scrollbar{
+	display: none;
+}
+@font-face{
+	font-family: "a";	src: url("a.ttf");
+}
+@font-face{
+	font-family: "b";	src: url("b.ttf");
+}
+a{
+	text-decoration: none;
+}
+body{
+	margin: 0px;	padding: 0px;	background-color: #212121;	color:white;
+}
+table{
+	border-spacing: 0px;
+}
+#siteTitleArea{
+	position: fixed;	width: 100%;
+}
+#siteMenuArea{
+	border-top: #C62828 solid 2px;	border-bottom: #C62828 solid 2px; height: 40px;
+}
+#siteMenuArea table{
+	width: 1200px;
+}
+#siteMenuArea td{
+	width: 33%;
+}
+#siteMenuArea a{
+	color:#C62828;		font-weight: 900;	font-family: "b";	font-size: 15pt;
+}
+#siteTitle{
+	width:1200px;		height: 75px;	
+}
+#siteTitle a{
+	color:white;	font-weight:900; font-size: 27pt; font-family: "b";
+	text-shadow: 2px 2px 2px #FFB300;
+}
+#siteLoginArea{
+	position: fixed;	top:47px;	right:100px;
+	width: 250px;	height: 150px;	
+	z-index: 99;
+}
+#siteContentArea{
+	margin-left: auto;	margin-right: auto;	width: 1200px;	padding-top: 190px;
+}
+#homeImg{
+	width: 50%;
+}
+#resultDiv{
+	position: fixed;	top:25px;	right:130px;
+	color:white;	font-weight: 700;	font-family: "b";
+}
